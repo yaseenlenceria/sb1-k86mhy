@@ -1,0 +1,29 @@
+---
+interface Props {
+  headings: {
+    text: string;
+    slug: string;
+    depth: number;
+  }[];
+}
+
+const { headings } = Astro.props;
+---
+
+<div class="sticky top-24 p-6 bg-white/5 rounded-lg backdrop-blur-lg">
+  <h2 class="text-lg font-semibold mb-4">Table of Contents</h2>
+  <nav>
+    <ul class="space-y-2">
+      {headings.map(heading => (
+        <li class={`${heading.depth === 2 ? 'ml-0' : 'ml-4'}`}>
+          <a 
+            href={`#${heading.slug}`}
+            class="text-gray-400 hover:text-white transition-colors block py-1"
+          >
+            {heading.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>

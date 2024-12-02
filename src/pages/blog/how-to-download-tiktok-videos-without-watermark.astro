@@ -1,5 +1,34 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import BlogPost from '../../layouts/BlogPost.astro';
+
+const author = {
+  name: "Sarah Johnson",
+  avatar: "/images/authors/sarah.jpg",
+  role: "Content Manager"
+};
+
+const headings = [
+  {
+    text: "Step-by-Step Guide",
+    slug: "step-by-step-guide",
+    depth: 2
+  },
+  {
+    text: "Tips for Best Results",
+    slug: "tips-for-best-results",
+    depth: 2
+  },
+  {
+    text: "Common Issues and Solutions",
+    slug: "common-issues-and-solutions",
+    depth: 2
+  },
+  {
+    text: "Why Choose SaveDownloadTT?",
+    slug: "why-choose-savedownloadtt",
+    depth: 2
+  }
+];
 
 const schema = {
   "@context": "https://schema.org",
@@ -9,79 +38,186 @@ const schema = {
   "datePublished": "2024-01-15",
   "dateModified": "2024-01-15",
   "author": {
-    "@type": "Organization",
-    "name": "SaveDownloadTT"
+    "@type": "Person",
+    "name": author.name
   }
 };
 ---
 
-<Layout
-  title="How to Download TikTok Videos Without Watermark | Complete Guide"
+<BlogPost
+  title="How to Download TikTok Videos Without Watermark"
   description="Learn how to download TikTok videos without watermark in 2024. Step-by-step guide with tips and best practices."
+  publishDate="2024-01-15"
+  author={author}
+  headings={headings}
+  image={{
+    src: "/images/blog/download-guide-hero.jpg",
+    alt: "TikTok video download guide illustration"
+  }}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <main class="pt-32 px-4">
-    <article class="max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">
-        How to Download TikTok Videos Without <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">Watermark</span>
-      </h1>
-      
-      <div class="flex items-center gap-4 text-gray-400 mb-12">
-        <time datetime="2024-01-15">January 15, 2024</time>
-        <span>•</span>
-        <span>5 min read</span>
+  <div class="lead-paragraph mb-8 text-xl text-gray-300">
+    Downloading TikTok videos without watermark has never been easier. In this comprehensive guide, we'll walk you through the process step by step, ensuring you get high-quality downloads every time.
+  </div>
+
+  <h2 id="step-by-step-guide">Step-by-Step Guide</h2>
+  <ol class="space-y-6">
+    <li>
+      <h3 class="text-xl font-semibold mb-2">1. Copy the TikTok Video URL</h3>
+      <div class="bg-white/5 rounded-lg p-6">
+        <p class="mb-4">Open TikTok and find the video you want to download. Click the "Share" button and select "Copy Link".</p>
+        <div class="bg-black/20 rounded-lg p-4">
+          <code class="text-sm">💡 Pro Tip: Make sure the video is publicly accessible</code>
+        </div>
       </div>
-
-      <div class="prose prose-invert max-w-none">
-        <h2>Step-by-Step Guide</h2>
-        <ol>
-          <li>
-            <strong>Copy the TikTok Video URL</strong>
-            <p>Open TikTok and find the video you want to download. Click the "Share" button and select "Copy Link".</p>
-          </li>
-          <li>
-            <strong>Paste the URL</strong>
-            <p>Visit SaveDownloadTT and paste the copied URL into the download box.</p>
-          </li>
-          <li>
-            <strong>Choose Download Options</strong>
-            <p>Select your preferred download quality and format (MP4 or MP3).</p>
-          </li>
-          <li>
-            <strong>Download Your Video</strong>
-            <p>Click the download button and save your watermark-free video.</p>
-          </li>
-        </ol>
-
-        <h2>Tips for Best Results</h2>
-        <ul>
-          <li>Always ensure you have permission to download and use the content</li>
-          <li>Choose HD quality for the best video resolution</li>
-          <li>Download videos in MP4 format for the highest quality</li>
-          <li>Use a stable internet connection for faster downloads</li>
-        </ul>
-
-        <h2>Common Issues and Solutions</h2>
-        <p>If you encounter any issues while downloading:</p>
-        <ul>
-          <li>Verify that the TikTok video URL is correct</li>
-          <li>Ensure the video is publicly accessible</li>
-          <li>Try refreshing the page if the download doesn't start</li>
-          <li>Check your internet connection</li>
-        </ul>
-
-        <h2>Why Choose SaveDownloadTT?</h2>
-        <p>Our service offers several advantages:</p>
-        <ul>
-          <li>Fast and reliable downloads</li>
-          <li>No watermarks on downloaded videos</li>
-          <li>High-quality video output</li>
-          <li>Free to use</li>
-          <li>No registration required</li>
-          <li>Support for MP3 conversion</li>
+    </li>
+    
+    <li>
+      <h3 class="text-xl font-semibold mb-2">2. Paste the URL</h3>
+      <div class="bg-white/5 rounded-lg p-6">
+        <p class="mb-4">Visit SaveDownloadTT and paste the copied URL into the download box.</p>
+        <div class="bg-black/20 rounded-lg p-4">
+          <code class="text-sm">🔍 Note: Our system will automatically detect and process the video</code>
+        </div>
+      </div>
+    </li>
+    
+    <li>
+      <h3 class="text-xl font-semibold mb-2">3. Choose Download Options</h3>
+      <div class="bg-white/5 rounded-lg p-6">
+        <p class="mb-4">Select your preferred download quality and format (MP4 or MP3).</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-300">
+          <li>HD Quality (Recommended for best results)</li>
+          <li>Standard Quality (Faster download)</li>
+          <li>MP3 Audio Only</li>
         </ul>
       </div>
-    </article>
-  </main>
-</Layout>
+    </li>
+    
+    <li>
+      <h3 class="text-xl font-semibold mb-2">4. Download Your Video</h3>
+      <div class="bg-white/5 rounded-lg p-6">
+        <p class="mb-4">Click the download button and save your watermark-free video.</p>
+        <div class="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg p-4">
+          <p class="text-sm">✨ Your video will be downloaded in its original quality, completely free of watermarks!</p>
+        </div>
+      </div>
+    </li>
+  </ol>
+
+  <h2 id="tips-for-best-results">Tips for Best Results</h2>
+  <div class="grid md:grid-cols-2 gap-6 my-6">
+    <div class="bg-white/5 rounded-lg p-6">
+      <h3 class="text-xl font-semibold mb-4">Before Downloading</h3>
+      <ul class="space-y-3">
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Verify video accessibility</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Check your internet connection</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Use the latest browser version</span>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="bg-white/5 rounded-lg p-6">
+      <h3 class="text-xl font-semibold mb-4">Quality Settings</h3>
+      <ul class="space-y-3">
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Choose HD for best quality</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>MP4 format for videos</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>MP3 for audio extraction</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="common-issues-and-solutions">Common Issues and Solutions</h2>
+  <div class="space-y-6 my-6">
+    <div class="bg-white/5 rounded-lg p-6">
+      <h3 class="text-xl font-semibold mb-4">Download Not Starting?</h3>
+      <ul class="space-y-3">
+        <li>✓ Verify the TikTok video URL is correct</li>
+        <li>✓ Ensure the video is publicly accessible</li>
+        <li>✓ Try refreshing the page</li>
+        <li>✓ Check your internet connection</li>
+      </ul>
+    </div>
+    
+    <div class="bg-white/5 rounded-lg p-6">
+      <h3 class="text-xl font-semibold mb-4">Quality Issues?</h3>
+      <ul class="space-y-3">
+        <li>✓ Select HD quality in download options</li>
+        <li>✓ Verify original video quality</li>
+        <li>✓ Use a stable internet connection</li>
+        <li>✓ Try a different browser</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="why-choose-savedownloadtt">Why Choose SaveDownloadTT?</h2>
+  <div class="grid md:grid-cols-3 gap-6 my-6">
+    <div class="bg-white/5 rounded-lg p-6">
+      <h3 class="text-xl font-semibold mb-4">Quality</h3>
+      <ul class="space-y-2">
+        <li>• HD downloads</li>
+        <li>• No quality loss</li>
+        <li>• Original resolution</li>
+      </ul>
+    </div>
+    
+    <div class="bg-white/5 rounded-lg p-6">
+      <h3 class="text-xl font-semibold mb-4">Speed</h3>
+      <ul class="space-y-2">
+        <li>• Fast processing</li>
+        <li>• Quick downloads</li>
+        <li>• No waiting time</li>
+      </ul>
+    </div>
+    
+    <div class="bg-white/5 rounded-lg p-6">
+      <h3 class="text-xl font-semibold mb-4">Features</h3>
+      <ul class="space-y-2">
+        <li>• No watermark</li>
+        <li>• Multiple formats</li>
+        <li>• Free to use</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-12 p-6 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg">
+    <h3 class="text-xl font-semibold mb-4">Ready to Download?</h3>
+    <p class="mb-4">Try SaveDownloadTT now and experience the best TikTok video downloader available.</p>
+    <a 
+      href="/" 
+      class="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+    >
+      Start Downloading
+    </a>
+  </div>
+</BlogPost>
