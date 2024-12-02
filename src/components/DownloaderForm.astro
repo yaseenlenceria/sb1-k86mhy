@@ -1,0 +1,137 @@
+---
+interface Props {
+  type?: 'video' | 'mp3';
+}
+
+const { type = 'video' } = Astro.props;
+---
+
+<div class="max-w-3xl mx-auto p-6 bg-white/5 backdrop-blur-lg rounded-xl shadow-2xl">
+  <div class="space-y-4">
+    <input
+      type="text"
+      id="video-url"
+      placeholder="Paste TikTok video URL here"
+      class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 outline-none transition-all"
+    />
+  </div>
+
+  <div id="result" class="mt-6 hidden">
+    <div class="space-y-4">
+      <div class="flex items-center gap-4">
+        <img id="video-thumbnail" class="w-24 h-24 rounded-lg object-cover" src="" alt="Video thumbnail" />
+        <div>
+          <h3 id="video-title" class="font-semibold"></h3>
+          <p id="video-author" class="text-sm text-gray-400"></p>
+          <p id="video-stats" class="text-sm text-gray-400"></p>
+        </div>
+      </div>
+      
+      <div id="download-progress" class="hidden">
+        <div class="w-full bg-gray-700 rounded-full h-2.5">
+          <div id="progress-bar" class="bg-gradient-to-r from-purple-500 to-pink-500 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+        <p id="progress-text" class="text-sm text-gray-400 mt-2">Starting download...</p>
+      </div>
+
+      <div id="download-buttons" class="flex gap-4">
+        <button 
+          id="download-button"
+          class="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+          disabled
+        >
+          Download {type === 'mp3' ? 'MP3' : 'Video'}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+import { getTikTokInfo, downloadFile } from '../utils/api';
+import { updateProgressUI, showError, triggerDownload } from '../utils/dom';
+import type { TikTokResponse } from '../utils/types';
+
+let videoData: TikTokResponse | null = null;
+const type = document.currentScript?.getAttribute('data-type') || 'video';
+
+// DOM Elements
+const urlInput = document.getElementById('video-url') as HTMLInputElement;
+const result = document.getElementById('result')!;
+const thumbnail = document.getElementById('video-thumbnail') as HTMLImageElement;
+const title = document.getElementById('video-title')!;
+const author = document.getElementById('video-author')!;
+const stats = document.getElementById('video-stats')!;
+const downloadProgress = document.getElementById('download-progress')!;
+const progressBar = document.getElementById('progress-bar')!;
+const progressText = document.getElementById('progress-text')!;
+const downloadButtons = document.getElementById('download-buttons')!;
+const downloadButton = document.getElementById('download-button') as HTMLButtonElement;
+
+function formatNumber(num: number): string {
+  return new Intl.NumberFormat('en-US', { notation: 'compact' }).format(num);
+}
+
+async function processUrl(url: string) {
+  try {
+    result.classList.remove('hidden');
+    downloadButton.disabled = true;
+    
+    videoData = await getTikTokInfo(url);
+    
+    thumbnail.src = videoData.data.cover;
+    title.textContent = videoData.data.title;
+    author.textContent = `By: ${videoData.data.author.nickname}`;
+    stats.textContent = `${formatNumber(videoData.data.play_count)} views • ${formatNumber(videoData.data.digg_count)} likes`;
+    
+    downloadButton.disabled = false;
+  } catch (error) {
+    showError(result, error instanceof Error ? error.message : 'Unknown error occurred');
+  }
+}
+
+async function startDownload() {
+  if (!videoData) return;
+
+  downloadButtons.classList.add('hidden');
+  downloadProgress.classList.remove('hidden');
+
+  try {
+    const url = type === 'mp3' ? videoData.data.music : videoData.data.play;
+    const blob = await downloadFile(url, (progress) => {
+      updateProgressUI(progressBar, progressText, progress.percentage);
+    });
+
+    const filename = `tiktok-${type === 'mp3' ? 'audio' : 'video'}-${videoData.data.id}.${type === 'mp3' ? 'mp3' : 'mp4'}`;
+    triggerDownload(blob, filename);
+
+    // Reset UI
+    setTimeout(() => {
+      downloadProgress.classList.add('hidden');
+      downloadButtons.classList.remove('hidden');
+      progressBar.style.width = '0%';
+      progressText.textContent = 'Starting download...';
+    }, 1000);
+  } catch (error) {
+    progressText.textContent = error instanceof Error ? error.message : 'Download failed. Please try again.';
+    setTimeout(() => {
+      downloadProgress.classList.add('hidden');
+      downloadButtons.classList.remove('hidden');
+    }, 2000);
+  }
+}
+
+// Event Listeners
+let debounceTimer: number;
+
+urlInput.addEventListener('input', (e) => {
+  clearTimeout(debounceTimer);
+  const url = (e.target as HTMLInputElement).value.trim();
+  
+  if (url && url.includes('tiktok.com')) {
+    debounceTimer = setTimeout(() => processUrl(url), 500);
+  }
+});
+
+downloadButton.addEventListener('click', startDownload);
+</script>

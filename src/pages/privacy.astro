@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy - SaveDownloadTT",
+  "description": "Privacy policy and data handling practices for SaveDownloadTT TikTok video downloader."
+};
+---
+
+<Layout
+  title="Privacy Policy - SaveDownloadTT | TikTok Video Downloader"
+  description="Learn about our privacy policy and how we handle your data at SaveDownloadTT TikTok video downloader."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="pt-32 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">
+        Privacy <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">Policy</span>
+      </h1>
+
+      <div class="space-y-8 text-gray-300">
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">Information Collection</h2>
+          <p>
+            We only collect the minimum amount of information necessary to provide our service. This includes:
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-2">
+            <li>TikTok video URLs that you submit</li>
+            <li>Basic usage statistics</li>
+            <li>Technical information required for the service to function</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">Data Usage</h2>
+          <p>
+            The information we collect is used solely for:
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-2">
+            <li>Providing the video download service</li>
+            <li>Improving our service quality</li>
+            <li>Maintaining service security</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">Data Protection</h2>
+          <p>
+            We implement appropriate security measures to protect your information. We do not store downloaded videos or personal information beyond what's necessary for the service to function.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">Third-Party Services</h2>
+          <p>
+            Our service interacts with TikTok's platform to provide video downloads. We recommend reviewing TikTok's privacy policy to understand how they handle your data.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>

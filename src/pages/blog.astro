@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = [
+  {
+    title: "How to Download TikTok Videos Without Watermark",
+    excerpt: "Learn the easiest way to download TikTok videos without watermark using SaveDownloadTT.",
+    date: "2024-01-15",
+    slug: "how-to-download-tiktok-videos-without-watermark",
+    image: "/blog/download-guide.jpg"
+  },
+  {
+    title: "Top 10 TikTok Video Editing Tips",
+    excerpt: "Discover the best practices for editing TikTok videos to increase engagement and views.",
+    date: "2024-01-10",
+    slug: "top-10-tiktok-video-editing-tips",
+    image: "/blog/editing-tips.jpg"
+  },
+  {
+    title: "Understanding TikTok Video Quality",
+    excerpt: "Everything you need to know about TikTok video quality and how to maintain it when downloading.",
+    date: "2024-01-05",
+    slug: "understanding-tiktok-video-quality",
+    image: "/blog/video-quality.jpg"
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "SaveDownloadTT Blog",
+  "description": "Latest articles about TikTok video downloading, editing, and best practices.",
+  "blogPost": posts.map(post => ({
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "datePublished": post.date
+  }))
+};
+---
+
+<Layout
+  title="Blog - SaveDownloadTT | TikTok Video Downloader Tips & Guides"
+  description="Read our latest articles about TikTok video downloading, editing tips, and best practices for content creators."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="pt-32 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">
+        Our <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">Blog</span>
+      </h1>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map(post => (
+          <article class="bg-white/5 rounded-xl overflow-hidden backdrop-blur-lg transition-transform hover:scale-105">
+            <div class="h-48 bg-purple-900/50"></div>
+            <div class="p-6">
+              <p class="text-sm text-gray-400 mb-2">{new Date(post.date).toLocaleDateString()}</p>
+              <h2 class="text-xl font-bold mb-2">{post.title}</h2>
+              <p class="text-gray-300 mb-4">{post.excerpt}</p>
+              <a
+                href={`/blog/${post.slug}`}
+                class="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center"
+              >
+                Read More
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>

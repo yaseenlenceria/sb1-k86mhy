@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Terms of Service - SaveDownloadTT",
+  "description": "Terms of service and usage guidelines for SaveDownloadTT TikTok video downloader."
+};
+---
+
+<Layout
+  title="Terms of Service - SaveDownloadTT | TikTok Video Downloader"
+  description="Read our terms of service to understand the guidelines and rules for using SaveDownloadTT TikTok video downloader."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="pt-32 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">
+        Terms of <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">Service</span>
+      </h1>
+
+      <div class="space-y-8 text-gray-300">
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">1. Terms</h2>
+          <p>
+            By accessing SaveDownloadTT, you agree to be bound by these terms of service and comply with all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">2. Use License</h2>
+          <p>
+            This service is intended for personal, non-commercial use only. Users are responsible for ensuring they have the right to download and use any content obtained through our service.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">3. Disclaimer</h2>
+          <p>
+            SaveDownloadTT is not affiliated with TikTok or ByteDance Ltd. We provide a third-party service for downloading publicly available content. Users are responsible for complying with TikTok's terms of service.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">4. Limitations</h2>
+          <p>
+            SaveDownloadTT shall not be liable for any damages arising out of the use or inability to use our services. We reserve the right to modify or discontinue our service at any time without notice.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>

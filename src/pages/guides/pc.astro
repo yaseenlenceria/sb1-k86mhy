@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Download TikTok Videos on PC",
+  "description": "Step-by-step guide for downloading TikTok videos on PC/Desktop using SaveDownloadTT.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Visit TikTok Website",
+      "text": "Go to TikTok.com and find the video you want to download."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy Video Link",
+      "text": "Click the Share button and copy the video link."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Visit SaveDownloadTT",
+      "text": "Open SaveDownloadTT.com in your browser."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Download Video",
+      "text": "Paste the link and click Download to save your video without watermark."
+    }
+  ]
+};
+---
+
+<Layout
+  title="How to Download TikTok Videos on PC | SaveDownloadTT"
+  description="Learn how to download TikTok videos on PC/Desktop. Step-by-step guide for saving TikTok videos without watermark using SaveDownloadTT."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="pt-32 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-6">
+        How to Download TikTok Videos on <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">PC</span>
+      </h1>
+
+      <div class="mt-12 space-y-12">
+        <section class="bg-white/5 rounded-xl p-8 backdrop-blur-lg">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Step 1: Visit TikTok Website</h2>
+              <p class="text-gray-300">Go to TikTok.com in your browser and find the video you want to download.</p>
+            </div>
+            <div class="bg-black/20 rounded-lg p-4">
+              <img 
+                src="/images/guides/pc-tiktok-website.webp" 
+                alt="TikTok website on PC" 
+                class="rounded-lg w-full"
+                width="600"
+                height="400"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white/5 rounded-xl p-8 backdrop-blur-lg">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Step 2: Copy Video Link</h2>
+              <p class="text-gray-300">Click the Share button and select "Copy link" from the sharing options.</p>
+            </div>
+            <div class="bg-black/20 rounded-lg p-4">
+              <img 
+                src="/images/guides/pc-share-button.webp" 
+                alt="Share button on PC" 
+                class="rounded-lg w-full"
+                width="600"
+                height="400"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white/5 rounded-xl p-8 backdrop-blur-lg">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Step 3: Visit SaveDownloadTT</h2>
+              <p class="text-gray-300">Open SaveDownloadTT.com in your browser.</p>
+            </div>
+            <div class="bg-black/20 rounded-lg p-4">
+              <img 
+                src="/images/guides/pc-website.webp" 
+                alt="SaveDownloadTT website on PC" 
+                class="rounded-lg w-full"
+                width="600"
+                height="400"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white/5 rounded-xl p-8 backdrop-blur-lg">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Step 4: Download Video</h2>
+              <p class="text-gray-300">Paste the copied link into the download box and click the Download button. Choose your preferred save location.</p>
+            </div>
+            <div class="bg-black/20 rounded-lg p-4">
+              <img 
+                src="/images/guides/pc-download.webp" 
+                alt="Downloading video on PC" 
+                class="rounded-lg w-full"
+                width="600"
+                height="400"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white/5 rounded-xl p-8 backdrop-blur-lg">
+          <h2 class="text-2xl font-bold mb-4">Tips for PC Users</h2>
+          <ul class="space-y-4 text-gray-300">
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Works with all modern browsers (Chrome, Firefox, Edge, Safari)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Downloads are saved to your default downloads folder</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Right-click the download button for additional save options</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>

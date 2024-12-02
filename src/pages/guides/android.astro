@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Download TikTok Videos on Android",
+  "description": "Step-by-step guide for downloading TikTok videos on Android devices using SaveDownloadTT.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Open TikTok",
+      "text": "Launch the TikTok app on your Android device and find the video you want to download."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy Video Link",
+      "text": "Tap the Share button and select 'Copy Link' from the sharing options."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Visit SaveDownloadTT",
+      "text": "Open your browser and go to SaveDownloadTT.com."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Download Video",
+      "text": "Paste the copied link and click Download to save your video without watermark."
+    }
+  ]
+};
+---
+
+<Layout
+  title="How to Download TikTok Videos on Android | SaveDownloadTT"
+  description="Learn how to download TikTok videos on Android devices. Step-by-step guide for saving TikTok videos without watermark using SaveDownloadTT."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="pt-32 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-6">
+        How to Download TikTok Videos on <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">Android</span>
+      </h1>
+
+      <div class="mt-12 space-y-12">
+        <section class="bg-white/5 rounded-xl p-8 backdrop-blur-lg">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Step 1: Open TikTok</h2>
+              <p class="text-gray-300">Launch the TikTok app on your Android device and find the video you want to download.</p>
+            </div>
+            <div class="bg-black/20 rounded-lg p-4">
+              <img 
+                src="/images/guides/android-tiktok-app.webp" 
+                alt="TikTok app on Android" 
+                class="rounded-lg w-full"
+                width="300"
+                height="600"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white/5 rounded-xl p-8 backdrop-blur-lg">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Step 2: Copy Video Link</h2>
+              <p class="text-gray-300">Tap the Share button (arrow icon) and select "Copy Link" from the sharing options.</p>
+            </div>
+            <div class="bg-black/20 rounded-lg p-4">
+              <img 
+                src="/images/guides/android-share-button.webp" 
+                alt="Share button in TikTok" 
+                class="rounded-lg w-full"
+                width="300"
+                height="600"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white/5 rounded-xl p-8 backdrop-blur-lg">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Step 3: Visit SaveDownloadTT</h2>
+              <p class="text-gray-300">Open your preferred browser and navigate to SaveDownloadTT.com.</p>
+            </div>
+            <div class="bg-black/20 rounded-lg p-4">
+              <img 
+                src="/images/guides/android-browser.webp" 
+                alt="Browser on Android" 
+                class="rounded-lg w-full"
+                width="300"
+                height="600"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white/5 rounded-xl p-8 backdrop-blur-lg">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Step 4: Download Video</h2>
+              <p class="text-gray-300">Paste the copied link into the download box and click the Download button. Your video will be saved without watermark.</p>
+            </div>
+            <div class="bg-black/20 rounded-lg p-4">
+              <img 
+                src="/images/guides/android-download.webp" 
+                alt="Downloading video on Android" 
+                class="rounded-lg w-full"
+                width="300"
+                height="600"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white/5 rounded-xl p-8 backdrop-blur-lg">
+          <h2 class="text-2xl font-bold mb-4">Tips for Android Users</h2>
+          <ul class="space-y-4 text-gray-300">
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Use Chrome or Firefox browser for best compatibility</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Enable permissions when prompted to save videos</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Videos are saved to your Downloads folder by default</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>

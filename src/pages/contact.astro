@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact SaveDownloadTT - Get in Touch",
+  "description": "Contact our team for support or inquiries about our TikTok video downloader service."
+};
+---
+
+<Layout
+  title="Contact Us - SaveDownloadTT | TikTok Video Downloader"
+  description="Get in touch with SaveDownloadTT team. We're here to help with any questions about our TikTok video downloader service."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="pt-32 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">
+        Contact <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">Us</span>
+      </h1>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold">Get in Touch</h2>
+          <p class="text-gray-300">
+            Have questions or feedback? We'd love to hear from you. Fill out the form and we'll get back to you as soon as possible.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3 text-gray-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <span>support@savedownloadtt.com</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-300">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="mt-1 w-full px-4 py-2 bg-white/10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            />
+          </div>
+          
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="mt-1 w-full px-4 py-2 bg-white/10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            />
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-300">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              class="mt-1 w-full px-4 py-2 bg-white/10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            ></textarea>
+          </div>
+          
+          <button
+            type="submit"
+            class="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</Layout>

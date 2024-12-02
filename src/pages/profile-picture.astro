@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "TikTok Profile Picture Downloader - Save Profile Photos in HD",
+  "description": "Download TikTok profile pictures in full resolution. Save TikTok avatar images easily.",
+};
+---
+
+<Layout
+  title="TikTok Profile Picture Downloader - Save Avatar Images | SaveDownloadTT"
+  description="Download TikTok profile pictures in HD quality. Save TikTok avatars in full resolution easily and quickly."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="pt-32 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        TikTok Profile Picture <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">Downloader</span>
+      </h1>
+      <p class="text-xl text-gray-300 mb-8">
+        Download TikTok profile pictures in full HD resolution
+      </p>
+      
+      <div class="max-w-3xl mx-auto p-6 bg-white/5 backdrop-blur-lg rounded-xl shadow-2xl">
+        <form class="space-y-4" id="profile-form">
+          <div class="flex flex-col md:flex-row gap-4">
+            <input
+              type="text"
+              placeholder="Enter TikTok username"
+              class="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 outline-none transition-all"
+              required
+            />
+            <button
+              type="submit"
+              class="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+            >
+              Download
+            </button>
+          </div>
+        </form>
+
+        <div id="profile-result" class="mt-6 hidden">
+          <!-- Results will be populated here -->
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+const form = document.getElementById('profile-form');
+const result = document.getElementById('profile-result');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const username = e.target[0].value;
+  
+  try {
+    // Here we'll integrate with the TikTok API for profile pictures
+    result.innerHTML = `
+      <div class="bg-white/10 p-4 rounded-lg">
+        <p class="text-green-400">Profile picture found!</p>
+        <div class="mt-4">
+          <button class="px-4 py-2 bg-purple-500 rounded-lg">Download HD Image</button>
+        </div>
+      </div>
+    `;
+    result.classList.remove('hidden');
+  } catch (error) {
+    result.innerHTML = `
+      <div class="bg-red-500/20 p-4 rounded-lg">
+        <p class="text-red-400">Error: Could not find profile picture. Please check the username.</p>
+      </div>
+    `;
+    result.classList.remove('hidden');
+  }
+});
+</script>

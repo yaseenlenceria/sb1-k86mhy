@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DownloaderForm from '../components/DownloaderForm.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "TikTok MP3 Downloader - Extract Audio from TikTok Videos",
+  "description": "Convert and download TikTok videos to MP3 format. High-quality audio extraction from TikTok videos.",
+};
+---
+
+<Layout
+  title="TikTok MP3 Downloader - Extract Audio | SaveDownloadTT"
+  description="Convert and download TikTok videos to MP3. Extract high-quality audio from any TikTok video easily and quickly."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="pt-32 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        TikTok to <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">MP3</span> Converter
+      </h1>
+      <p class="text-xl text-gray-300 mb-8">
+        Extract high-quality audio from TikTok videos in MP3 format
+      </p>
+      <DownloaderForm type="mp3" />
+      
+      <div class="mt-20">
+        <h2 class="text-3xl font-bold mb-6">How to Download TikTok MP3</h2>
+        <div class="grid md:grid-cols-3 gap-8 text-left">
+          <div class="p-6 bg-white/5 rounded-xl">
+            <div class="text-3xl mb-4">1️⃣</div>
+            <h3 class="text-xl font-semibold mb-2">Copy Link</h3>
+            <p class="text-gray-400">Copy the TikTok video URL from the app or website</p>
+          </div>
+          <div class="p-6 bg-white/5 rounded-xl">
+            <div class="text-3xl mb-4">2️⃣</div>
+            <h3 class="text-xl font-semibold mb-2">Paste URL</h3>
+            <p class="text-gray-400">Paste the link in our converter above</p>
+          </div>
+          <div class="p-6 bg-white/5 rounded-xl">
+            <div class="text-3xl mb-4">3️⃣</div>
+            <h3 class="text-xl font-semibold mb-2">Download MP3</h3>
+            <p class="text-gray-400">Click download and save your MP3 file</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

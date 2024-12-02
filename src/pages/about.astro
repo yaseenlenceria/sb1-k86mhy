@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About SaveDownloadTT - TikTok Video Downloader",
+  "description": "Learn about SaveDownloadTT, the best TikTok video downloader service. Our mission, features, and commitment to users.",
+};
+---
+
+<Layout
+  title="About Us - SaveDownloadTT | TikTok Video Downloader"
+  description="Learn about SaveDownloadTT, your trusted TikTok video downloader. Discover our mission, features, and commitment to providing the best service."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="pt-32 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">
+        About <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">SaveDownloadTT</span>
+      </h1>
+      
+      <div class="space-y-8 text-gray-300">
+        <p>
+          SaveDownloadTT is your go-to solution for downloading TikTok videos without watermarks. We started with a simple mission: to make it easy for everyone to save and share their favorite TikTok content.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-white">Our Mission</h2>
+        <p>
+          We believe in providing a seamless, fast, and reliable service for downloading TikTok videos. Our platform is designed with user experience in mind, ensuring that anyone can easily save their favorite TikTok content.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-white">Why Choose Us</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Fast and reliable downloads</li>
+          <li>No watermarks on downloaded videos</li>
+          <li>High-quality MP3 conversion</li>
+          <li>User-friendly interface</li>
+          <li>No registration required</li>
+          <li>Free to use</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold text-white">Our Commitment</h2>
+        <p>
+          We are committed to providing the best possible service while respecting content creators' rights. Our platform is designed for personal use only, and we encourage users to respect copyright laws and TikTok's terms of service.
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>
