@@ -19,11 +19,11 @@ const footerLinks = [
     ]
   },
   {
-    title: 'Company',
+    title: 'Help',
     links: [
+      { href: '/faq', text: 'FAQ' },
       { href: '/about', text: 'About Us' },
-      { href: '/contact', text: 'Contact' },
-      { href: '/blog', text: 'Blog' }
+      { href: '/contact', text: 'Contact' }
     ]
   },
   {
@@ -40,8 +40,17 @@ const footerLinks = [
   <div class="container mx-auto py-12 px-4">
     <div class="grid md:grid-cols-5 gap-8">
       <div class="md:col-span-2">
-        <a href="/" class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-          SaveDownloadTT
+        <a href="/" class="flex items-center gap-2">
+          <img 
+            src="/favicon.svg" 
+            alt="SaveDownloadTT Logo" 
+            class="w-8 h-8"
+            width="32"
+            height="32"
+          />
+          <span class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+            SaveDownloadTT
+          </span>
         </a>
         <p class="mt-4 text-gray-400">
           Download TikTok videos without watermark. Fast, free, and easy to use. Available for all devices - Android, iPhone, iPad, and PC.
