@@ -1,40 +1,93 @@
 ---
-const links = [
-  { href: '/', text: 'Home' },
-  { href: '/mp3-downloader', text: 'MP3 Downloader' },
-  { href: '/profile-picture', text: 'Profile Picture' },
-  { href: '/blog', text: 'Blog' },
-  { href: '/about', text: 'About' },
-  { href: '/contact', text: 'Contact' }
+const menuItems = [
+  {
+    title: 'Tools',
+    items: [
+      { href: '/mp3-downloader', text: 'MP3 Downloader' },
+      { href: '/profile-picture', text: 'Profile Picture' },
+      { href: '/best-tiktok-downloaders', text: 'Best TikTok Downloaders' }
+    ]
+  },
+  {
+    title: 'Guides',
+    items: [
+      { href: '/guides/android', text: 'Android Guide' },
+      { href: '/guides/ios', text: 'iOS Guide' },
+      { href: '/guides/pc', text: 'PC Guide' }
+    ]
+  },
+  {
+    title: 'Company',
+    items: [
+      { href: '/about', text: 'About' },
+      { href: '/contact', text: 'Contact' },
+      { href: '/blog', text: 'Blog' }
+    ]
+  }
 ];
 ---
 
 <header class="fixed w-full bg-black/80 backdrop-blur-sm z-50">
   <nav class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-        SaveDownloadTT
+      <a href="/" class="flex items-center gap-2">
+        <img 
+          src="/favicon.svg" 
+          alt="SaveDownloadTT Logo" 
+          class="w-8 h-8"
+          width="32"
+          height="32"
+        />
+        <span class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+          SaveDownloadTT
+        </span>
       </a>
-      <div class="hidden md:flex space-x-6">
-        {links.map(link => (
-          <a href={link.href} class="text-gray-300 hover:text-white transition-colors">
-            {link.text}
-          </a>
+
+      <div class="hidden md:flex items-center space-x-6">
+        {menuItems.map(category => (
+          <div class="relative group">
+            <button class="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-1">
+              {category.title}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-black/90 backdrop-blur-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="py-2">
+                {category.items.map(item => (
+                  <a
+                    href={item.href}
+                    class="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                  >
+                    {item.text}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         ))}
       </div>
+
       <button class="md:hidden" id="menu-toggle">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
-    
+
     <div class="md:hidden hidden" id="mobile-menu">
-      <div class="pt-4 pb-3 space-y-3">
-        {links.map(link => (
-          <a href={link.href} class="block text-gray-300 hover:text-white transition-colors">
-            {link.text}
-          </a>
+      <div class="pt-4 pb-3 space-y-4">
+        {menuItems.map(category => (
+          <div class="space-y-2">
+            <div class="font-semibold text-gray-300">{category.title}</div>
+            <div class="pl-4 space-y-2">
+              {category.items.map(item => (
+                <a href={item.href} class="block text-gray-300 hover:text-white transition-colors">
+                  {item.text}
+                </a>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>
