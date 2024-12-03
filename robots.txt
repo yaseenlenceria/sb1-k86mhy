@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://savedownloadtt.com/sitemap.xml
+Sitemap: https://savedownloadtt.com/sitemap-index.xml
+
+# Crawl-delay
+Crawl-delay: 10
+
+# Disallow paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /draft/
+
+# Allow important paths
+Allow: /blog/
+Allow: /guides/
+Allow: /tools/
+Allow: /about/
+Allow: /contact/

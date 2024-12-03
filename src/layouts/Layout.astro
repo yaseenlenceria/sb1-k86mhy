@@ -6,9 +6,17 @@ import { ViewTransitions } from 'astro:transitions';
 interface Props {
   title: string;
   description: string;
+  image?: string;
+  type?: string;
 }
 
-const { title, description } = Astro.props;
+const { 
+  title, 
+  description, 
+  image = '/og-image.jpg',
+  type = 'website'
+} = Astro.props;
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -25,24 +33,73 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content="SaveDownloadTT" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="/og-image.jpg" />
+    <meta property="twitter:image" content={image} />
 
-    <!-- Verification tag for Google Search Console -->
+    <!-- Additional SEO Meta Tags -->
+    <meta name="keywords" content="tiktok downloader without watermark free, tiktok video downloader without watermark, bts videos download tiktok, tiktok video download, bts tiktok videos, tiktok downloader, video downloader" />
+    <meta name="author" content="SaveDownloadTT" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <!-- Verification Tags -->
     <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+    <meta name="msvalidate.01" content="YOUR_BING_CODE" />
+    <meta name="yandex-verification" content="YOUR_YANDEX_CODE" />
+
+    <!-- Preconnect to Important Origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="SaveDownloadTT Blog" href="/rss.xml" />
 
     <ViewTransitions />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Structured Data for Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SaveDownloadTT",
+        "url": "https://savedownloadtt.com",
+        "logo": "https://savedownloadtt.com/favicon.svg",
+        "description": "Free TikTok video downloader without watermark. Download TikTok videos in HD quality.",
+        "sameAs": [
+          "https://twitter.com/savedownloadtt",
+          "https://github.com/savedownloadtt"
+        ]
+      }
+    </script>
+
+    <!-- Structured Data for WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SaveDownloadTT",
+        "url": "https://savedownloadtt.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://savedownloadtt.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
   </head>
   <body class="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
     <Header />
@@ -51,7 +108,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <script>
       import AOS from 'aos';
       
-      // Initialize AOS
       document.addEventListener('astro:page-load', () => {
         AOS.init({
           duration: 800,

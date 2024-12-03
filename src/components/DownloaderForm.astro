@@ -8,18 +8,26 @@ const { type = 'video' } = Astro.props;
 
 <div class="max-w-3xl mx-auto p-6 bg-white/5 backdrop-blur-lg rounded-xl shadow-2xl">
   <div class="space-y-4">
-    <input
-      type="text"
-      id="video-url"
-      placeholder="Paste TikTok video URL here"
-      class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 outline-none transition-all"
-    />
+    <div class="relative">
+      <input
+        type="text"
+        id="video-url"
+        placeholder="Paste TikTok video URL here"
+        class="w-full px-4 py-3 pr-24 rounded-lg bg-white/10 border border-gray-600 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 outline-none transition-all"
+      />
+      <button
+        id="paste-button"
+        class="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1.5 bg-white/10 hover:bg-white/20 rounded-md text-sm font-medium transition-colors"
+      >
+        Paste
+      </button>
+    </div>
   </div>
 
   <div id="result" class="mt-6 hidden">
     <div class="space-y-4">
       <div class="flex items-center gap-4">
-        <img id="video-thumbnail" class="w-24 h-24 rounded-lg object-cover" src="" alt="Video thumbnail" />
+        <img id="video-thumbnail" class="w-24 h-24 rounded-lg object-cover animate-pulse" src="" alt="Video thumbnail" />
         <div>
           <h3 id="video-title" class="font-semibold"></h3>
           <p id="video-author" class="text-sm text-gray-400"></p>
@@ -37,9 +45,12 @@ const { type = 'video' } = Astro.props;
       <div id="download-buttons" class="flex gap-4">
         <button 
           id="download-button"
-          class="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+          class="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center gap-2"
           disabled
         >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
           Download {type === 'mp3' ? 'MP3' : 'Video'}
         </button>
       </div>
@@ -57,6 +68,7 @@ const type = document.currentScript?.getAttribute('data-type') || 'video';
 
 // DOM Elements
 const urlInput = document.getElementById('video-url') as HTMLInputElement;
+const pasteButton = document.getElementById('paste-button') as HTMLButtonElement;
 const result = document.getElementById('result')!;
 const thumbnail = document.getElementById('video-thumbnail') as HTMLImageElement;
 const title = document.getElementById('video-title')!;
@@ -80,6 +92,7 @@ async function processUrl(url: string) {
     videoData = await getTikTokInfo(url);
     
     thumbnail.src = videoData.data.cover;
+    thumbnail.classList.remove('animate-pulse');
     title.textContent = videoData.data.title;
     author.textContent = `By: ${videoData.data.author.nickname}`;
     stats.textContent = `${formatNumber(videoData.data.play_count)} views • ${formatNumber(videoData.data.digg_count)} likes`;
@@ -133,5 +146,32 @@ urlInput.addEventListener('input', (e) => {
   }
 });
 
+pasteButton.addEventListener('click', async () => {
+  try {
+    const text = await navigator.clipboard.readText();
+    urlInput.value = text;
+    if (text && text.includes('tiktok.com')) {
+      processUrl(text);
+    }
+  } catch (err) {
+    console.error('Failed to read clipboard:', err);
+  }
+});
+
 downloadButton.addEventListener('click', startDownload);
 </script>
+
+<style>
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+</style>
